@@ -1,0 +1,122 @@
+class contexmanager():
+  def __enter__(self):
+    print("you entered")
+    return self
+  def __exit__(self):
+    print("you exit")
+    log_out()
+
+
+
+
+current_user=0
+def run_the_sysytem():
+  global current_user
+  if current_user:
+    prompt=input(" register a new account or log in with an existing account")
+      if prompt=="register a new account":
+         register_a_new_account()
+      elif prompt=="log in":
+        p1=contexmanager()
+        log_in()
+        current_user=1
+        run_the_sysytem
+  elif current_user:
+    print("Register for a new course")
+    print("Retrieve registered courses")
+    print("Calculate average grade for the courses")
+    print("See the total number of users")
+    print("Delete the user account")
+    print("Log out")
+    option=input("chose your option")
+    if option=="Register for a new course":
+      register_new_user()
+    elif option=="Retrieve registered courses":
+      retrive()
+    elif option=="Calculate average grade for the courses":
+      Calculate_average_grade
+    elif option=="See the total number of users":
+      See_the_total_number_of_users
+    elif option=="Delete the user account":
+      delete_account()
+    else option=="Log out":
+      log_out()
+    elif current_user==2:
+      del p1
+
+
+
+
+@get_number_of_users
+def register_new_user():
+  username=input("enter unique username")
+  password=input("enter passwoed")
+  if username in password:
+    print(" error username in password")
+  num_dig=sum(1 for i in password if i.isdigit())
+  num_spe=sum(1 for i in password if not i.isalnum())
+  if num_dig>=2 and num_spe>=2 and len(password) <= 16:
+    print("correct")
+  else:
+    print("there is wrong in a password")
+
+def login():
+  global current_user
+  current_user=1#login the user into the system
+  username=input("enter unique username")
+  password=input("enter passwoed")
+  if username in password:
+    print(" error username in password")
+  num_dig=sum(1 for i in password if i.isdigit())
+  num_spe=sum(1 for i in password if not i.isalnum())
+  if num_dig>=2 and num_spe>=2 and len(password) <= 16:
+    print("correct")
+  else:
+    print("there is wrong in a password")
+
+get_student_courses():
+  cources=input("enter your cources separated by spaces")
+  cources="".split()
+  grades=input("enter your grades separated by spaces")
+  grades="".split()
+ 
+   global info={
+      'cources':cources
+      'grades':grades
+  }
+  print(info)
+
+
+  
+
+add_new_user_course():
+  courcereg=input("input you cource")
+  a=index(info["cources"][courcereg])
+   c=info["grades"][a]=0
+     return c
+
+
+ calculating_the_average():
+  b=sum(info["grades"])/len(info["grades"])
+    return b
+
+
+z=0
+get_number_of_users(func):
+  def wraper():
+    global z+=1
+    return func()
+  return wraper
+
+
+
+
+
+
+
+
+remove_my_account():
+  del info
+  current_user=0
+  print("you kicked out of the system")
+  
